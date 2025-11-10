@@ -67,8 +67,7 @@
         }
 
         .profile-img {
-            /* --- [수정됨] 크기 180px로 변경 --- */
-            width: 180px;
+            width: 180px; /* 크기 180px로 유지 */
             height: 180px;
             border-radius: 50%;
             background: linear-gradient(45deg, var(--primary), var(--accent));
@@ -77,8 +76,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            /* --- [수정됨] 애니메이션 삭제 --- */
-            /* animation: float 3s ease-in-out infinite; */ 
+            /* 애니메이션 없음 (고정) */
             overflow: hidden; 
         }
 
@@ -89,8 +87,6 @@
             border-radius: 50%;
         }
         
-        /* --- [삭제됨] @keyframes float --- */
-
         h1 {
             font-size: 3.5em;
             margin-bottom: 10px;
@@ -134,8 +130,42 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* --- [삭제됨] 이메일 컨테이너 및 복사 버튼 스타일 --- */
+        /* --- [추가됨] 이메일 버튼 그룹 스타일 --- */
+        .email-group-container {
+            padding: 0; /* 내부에서 패딩 조절 */
+            gap: 0;
+            overflow: hidden; /* 둥근 모서리 유지 */
+        }
+
+        #email-link-text {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 18px 12px 24px;
+            transition: background 0.3s;
+        }
         
+        #email-link-text:hover {
+             background: rgba(255, 255, 255, 0.1); /* 텍스트 부분만 살짝 호버 */
+        }
+
+        #copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1.1em;
+            border-left: 1px solid rgba(255, 255, 255, 0.3); /* 구분선 */
+            height: 100%;
+        }
+        
+        #copy-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        /* ------------------------------------- */
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -343,7 +373,7 @@
     <div class="container">
         <header>
             <div class="profile-img">
-                <img src="비자사진_(2).jpg" alt="Jeongbin Sohn Profile Photo">
+                <img src="visa photo.jpg" alt="Jeongbin Sohn Profile Photo">
             </div>
             <h1>Jeongbin Sohn</h1>
             <div class="subtitle">손정빈 | Robotics & AI Researcher</div>
@@ -351,7 +381,10 @@
                 
                 <a href="YOUR_CV_LINK.pdf" target="_blank" class="contact-button">📄 CV</a>
                 
-                <a href="mailto:sjb010409@gm.gist.ac.kr" class="contact-button">📧 Email</a>
+                <div class="contact-button email-group-container">
+                    <a href="mailto:sjb010409@gm.gist.ac.kr" id="email-link-text">📧 Email</a>
+                    <button id="copy-btn" onclick="copyEmail('sjb010409@gm.gist.ac.kr')">📋</button>
+                </div>
 
                 <a href="https://www.linkedin.com/in/jeongbin-sohn-robotics" target="_blank" class="contact-button">💼 LinkedIn</a>
             
@@ -528,7 +561,21 @@
     </div>
 
     <script>
-        // --- [삭제됨] 이메일 복사 기능 ---
+        // --- [추가됨] 이메일 복사 기능 ---
+        function copyEmail(emailText) {
+            navigator.clipboard.writeText(emailText).then(() => {
+                const copyBtn = document.getElementById('copy-btn');
+                copyBtn.innerText = '✅'; // 아이콘을 체크 표시로 변경
+                copyBtn.style.cursor = 'default';
+                setTimeout(() => {
+                    copyBtn.innerText = '📋'; // 2초 후 원래 아이콘으로 복귀
+                    copyBtn.style.cursor = 'pointer';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('이메일 복사에 실패했습니다.');
+            });
+        }
 
         // Create stars animation
         const starsContainer = document.getElementById('stars');
