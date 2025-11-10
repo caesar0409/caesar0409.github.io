@@ -67,8 +67,9 @@
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            /* --- [수정됨] 크기 180px로 변경 --- */
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             background: linear-gradient(45deg, var(--primary), var(--accent));
             margin: 0 auto 30px;
@@ -76,23 +77,19 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            animation: float 3s ease-in-out infinite;
-            /* JB 텍스트 대신 이미지를 위한 스타일 */
+            /* --- [수정됨] 애니메이션 삭제 --- */
+            /* animation: float 3s ease-in-out infinite; */ 
             overflow: hidden; 
         }
 
-        /* --- [추가됨] 프로필 이미지 스타일 --- */
         .profile-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 이미지가 원을 꽉 채우도록 설정 */
+            object-fit: cover;
             border-radius: 50%;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
+        
+        /* --- [삭제됨] @keyframes float --- */
 
         h1 {
             font-size: 3.5em;
@@ -114,10 +111,9 @@
             justify-content: center;
             margin-top: 30px;
             animation: fadeInUp 1s ease 0.4s backwards;
-            flex-wrap: wrap; /* 화면이 작을 때 버튼이 줄바꿈되도록 */
+            flex-wrap: wrap;
         }
 
-        /* --- [수정됨] .contact-links a -> .contact-button 클래스로 변경 --- */
         .contact-button {
             color: white;
             text-decoration: none;
@@ -127,7 +123,6 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s;
             border: 1px solid rgba(255,255,255,0.3);
-            /* 아이콘과 텍스트 정렬을 위해 추가 */
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -139,37 +134,8 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* --- [추가됨] 이메일 컨테이너 및 복사 버튼 스타일 --- */
-        .email-container {
-            padding: 0; /* 내부에서 패딩을 조절하므로 부모 패딩 제거 */
-            gap: 0;
-            overflow: hidden; /* 버튼이 둥근 모서리를 넘지 않도록 */
-        }
+        /* --- [삭제됨] 이메일 컨테이너 및 복사 버튼 스타일 --- */
         
-        #email-text {
-            padding: 12px 15px 12px 24px;
-            font-size: 0.9em;
-            white-space: nowrap; /* 이메일 텍스트 줄바꿈 방지 */
-        }
-
-        #copy-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            padding: 12px 18px;
-            border-radius: 0 25px 25px 0; /* 오른쪽 모서리만 둥글게 */
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 1.1em;
-            border-left: 1px solid rgba(255, 255, 255, 0.3); /* 구분선 */
-        }
-
-        #copy-btn:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
-        /* ----------------------------------------------- */
-
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -368,17 +334,6 @@
             .subtitle { font-size: 1.2em; }
             .content-section { padding: 25px; }
             .timeline-header { flex-direction: column; align-items: flex-start; }
-            
-            /* 이메일 버튼이 너무 길어질 경우를 대비 */
-            #email-text {
-                white-space: normal;
-                word-break: break-all;
-                padding: 12px 10px 12px 20px;
-            }
-            #copy-btn {
-                padding: 12px 15px;
-                margin-left: 10px;
-            }
         }
     </style>
 </head>
@@ -388,18 +343,15 @@
     <div class="container">
         <header>
             <div class="profile-img">
-                <img src="visa photo.jpg" alt="Jeongbin Sohn Profile Photo">
+                <img src="비자사진_(2).jpg" alt="Jeongbin Sohn Profile Photo">
             </div>
             <h1>Jeongbin Sohn</h1>
             <div class="subtitle">손정빈 | Robotics & AI Researcher</div>
             <div class="contact-links">
                 
-                <a href="CV(25.11.6).pdf" target="_blank" class="contact-button">📄 CV</a>
+                <a href="YOUR_CV_LINK.pdf" target="_blank" class="contact-button">📄 CV</a>
                 
-                <div class="contact-button email-container">
-                    <span id="email-text">sjb010409@gm.gist.ac.kr</span>
-                    <button id="copy-btn" onclick="copyEmail()">📋</button>
-                </div>
+                <a href="mailto:sjb010409@gm.gist.ac.kr" class="contact-button">📧 Email</a>
 
                 <a href="https://www.linkedin.com/in/jeongbin-sohn-robotics" target="_blank" class="contact-button">💼 LinkedIn</a>
             
@@ -576,22 +528,7 @@
     </div>
 
     <script>
-        // --- [추가됨] 이메일 복사 기능 ---
-        function copyEmail() {
-            const emailText = document.getElementById('email-text').innerText;
-            navigator.clipboard.writeText(emailText).then(() => {
-                const copyBtn = document.getElementById('copy-btn');
-                copyBtn.innerText = '✅'; // 아이콘을 체크 표시로 변경
-                copyBtn.style.cursor = 'default';
-                setTimeout(() => {
-                    copyBtn.innerText = '📋'; // 2초 후 원래 아이콘으로 복귀
-                    copyBtn.style.cursor = 'pointer';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-                alert('이메일 복사에 실패했습니다.');
-            });
-        }
+        // --- [삭제됨] 이메일 복사 기능 ---
 
         // Create stars animation
         const starsContainer = document.getElementById('stars');
