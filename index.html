@@ -379,7 +379,7 @@
                 <a href="CV(25.11.6).pdf" target="_blank" class="contact-button">📄 CV</a>
                 
                 <div class="contact-button email-group-container">
-                    <a href="mailto:sjb010409@gm.gist.ac.kr" id="email-link-text">📧 Email</a>
+                    <a href="/cdn-cgi/l/email-protection#691a030b5958595d5950290e04470e001a1d47080a47021b" id="email-link-text">📧 Email</a>
                     <button id="copy-btn" onclick="copyEmail('sjb010409@gm.gist.ac.kr')">📋</button>
                 </div>
 
@@ -393,7 +393,7 @@
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-title">GIST (Gwangju Institute of Science and Technology)</div>
-                    <div class="timeline-date">Mar. 2020 - Feb. 2026</div>
+                    <div class="timeline-date">Mar. 2020 - Feb. 2027</div>
                 </div>
                 <div class="timeline-subtitle">B.S. Mechanical and Robotics Engineering / EECS Minor</div>
                 <div class="timeline-content">GPA: 4.38/4.5</div>
@@ -413,10 +413,27 @@
                 <div class="timeline-subtitle">Student Exchange Program</div>
                 <div class="timeline-content">GPA: 4.0/4.0</div>
             </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">GSA (Gwangju Science Academy for the Gifted)</div>
+                    <div class="timeline-date">Mar. 2017 - Feb. 2020</div>
+                </div>
+                <div class="timeline-subtitle">High School Graduation</div>
+            </div>
         </div>
 
         <div class="content-section">
             <h2>🔬 Research Experience</h2>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">UC Berkeley Embodied Dexterity Group (EDG)</div>
+                    <div class="timeline-date">Jan. 2026 - Current</div>
+                </div>
+                <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Hannah Stuart</div>
+                <div class="timeline-content">
+                    Analyzing recorded videos of C5-C7 injured patients demonstrating the dorsal grasper.
+                </div>
+            </div>
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-title">GIST Machine Perception and Intelligence Lab</div>
@@ -424,8 +441,7 @@
                 </div>
                 <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Pyojin Kim</div>
                 <div class="timeline-content">
-                    Developing ground-based star tracking techniques using astronomical coordinate transformations. 
-                    Currently researching Star Identification with Graph Neural Networks, targeting ECCV 2026 publication.
+                    Developing a Star Identification algorithm using deep learning to improve robustness against various noises in night sky images.
                 </div>
             </div>
             <div class="timeline-item">
@@ -445,7 +461,7 @@
                 </div>
                 <div class="timeline-subtitle">Research Assistant | Supervisor: Dr. Hojae Lee</div>
                 <div class="timeline-content">
-                    Improved programs using ray-casting algorithms, discovering the joy of interdisciplinary research.
+                    Translating codes into Python and implementing a domain-change algorithm for indoor localization.
                 </div>
             </div>
         </div>
@@ -465,7 +481,7 @@
                 </div>
             </div>
             <div class="publication-item">
-                <div><span class="pub-venue">ECCV 2026</span><strong>In Preparation</strong></div>
+                <div><span class="pub-venue">IEEE RA-L 2026</span><strong>In Preparation</strong></div>
                 <div class="timeline-content" style="margin-top: 10px;">
                     Sohn, Lee, Park, and Hepburn-Dickins, "Edge of Stars: Learning Stellar Graphs through Angular-Edge Inversion"
                 </div>
@@ -497,6 +513,10 @@
             <div class="award-item">
                 <div class="award-title">U.S. Army Commendation Medal</div>
                 <div class="award-date">Jun. 2023</div>
+            </div>
+            <div class="award-item">
+                <div class="award-title">GIST Mech-Eng Internship Presentation Award (2nd place)</div>
+                <div class="award-date">Jun. 2021</div>
             </div>
         </div>
 
@@ -544,6 +564,24 @@
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
+                    <div class="timeline-title">Korean-American Scientists &amp; Engineers Association (KSEA)</div>
+                    <div class="timeline-date">Feb. 2026 - Current</div>
+                </div>
+                <div class="timeline-content">
+                    Academic club for Korean-American students at UC Berkeley. Participating in a social group and academic journal club focus group.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">Language Exchange Program</div>
+                    <div class="timeline-date">Feb. 2026 - May. 2026</div>
+                </div>
+                <div class="timeline-content">
+                    Learning English and teaching Korean simultaneously with a UC Berkeley student.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
                     <div class="timeline-title">Teaching Assistant - Multivariable Calculus</div>
                     <div class="timeline-date">Sep. 2024 - Dec. 2024</div>
                 </div>
@@ -552,12 +590,12 @@
         </div>
 
         <footer>
-            <p>© 2025 Jeongbin Sohn | Robotics & AI Researcher</p>
+            <p>© 2026 Jeongbin Sohn | Robotics & AI Researcher</p>
             <p style="margin-top: 10px; opacity: 0.8;">Gwangju, Republic of Korea</p>
         </footer>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function copyEmail(emailText) {
             navigator.clipboard.writeText(emailText).then(() => {
                 const copyBtn = document.getElementById('copy-btn');
@@ -587,10 +625,4 @@
 
         document.querySelectorAll('.content-section').forEach(section => {
             section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.8s, transform 0.8s';
-            observer.observe(section);
-        });
-    </script>
-</body>
-</html>
+            section.style.transform = 'translateY(30px)'
