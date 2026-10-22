@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeongbin Sohn | Robotics Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -22,35 +23,10 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: white; /* --- [수정됨] 흰색 배경 --- */
+            background-color: white;
             color: var(--dark);
             overflow-x: hidden;
         }
-
-        /* --- [삭제됨] .stars 관련 CSS --- */
-        /* .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        } */
 
         .container {
             max-width: 1200px;
@@ -63,7 +39,7 @@
         header {
             text-align: center;
             padding: 80px 20px;
-            color: var(--dark); /* --- [수정됨] 글자색 어둡게 --- */
+            color: var(--dark);
             position: relative;
         }
 
@@ -90,7 +66,7 @@
         h1 {
             font-size: 3.5em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* 그림자도 연하게 */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             animation: fadeInUp 1s ease;
         }
 
@@ -99,6 +75,12 @@
             opacity: 0.9;
             margin-bottom: 20px;
             animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .interests {
+            color: var(--gray);
+            font-size: 1.05em;
+            animation: fadeInUp 1s ease 0.3s backwards;
         }
 
         .contact-links {
@@ -111,23 +93,23 @@
         }
 
         .contact-button {
-            color: var(--dark); /* --- [수정됨] 글자색 어둡게 --- */
+            color: var(--dark);
             text-decoration: none;
             padding: 12px 24px;
-            background: rgba(0,0,0,0.05); /* --- [수정됨] 배경색 변경 --- */
+            background: rgba(0,0,0,0.05);
             border-radius: 25px;
             backdrop-filter: blur(10px);
             transition: all 0.3s;
-            border: 1px solid rgba(0,0,0,0.1); /* --- [수정됨] 테두리 변경 --- */
+            border: 1px solid rgba(0,0,0,0.1);
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
 
         .contact-button:hover {
-            background: rgba(0,0,0,0.1); /* --- [수정됨] 호버 배경색 변경 --- */
+            background: rgba(0,0,0,0.1);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* 그림자도 연하게 */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         /* 이메일 버튼 그룹 스타일 */
@@ -138,7 +120,7 @@
         }
 
         #email-link-text {
-            color: var(--dark); /* --- [수정됨] 글자색 어둡게 --- */
+            color: var(--dark);
             text-decoration: none;
             display: inline-block;
             padding: 12px 18px 12px 24px;
@@ -146,23 +128,23 @@
         }
         
         #email-link-text:hover {
-             background: rgba(0, 0, 0, 0.03); /* 텍스트 부분만 살짝 호버 */
+             background: rgba(0, 0, 0, 0.03);
         }
 
         #copy-btn {
-            background: rgba(0, 0, 0, 0.05); /* --- [수정됨] 배경색 변경 --- */
+            background: rgba(0, 0, 0, 0.05);
             border: none;
-            color: var(--dark); /* --- [수정됨] 글자색 어둡게 --- */
+            color: var(--dark);
             padding: 12px 18px;
             cursor: pointer;
             transition: background 0.3s;
             font-size: 1.1em;
-            border-left: 1px solid rgba(0, 0, 0, 0.1); /* --- [수정됨] 구분선 변경 --- */
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
             height: 100%;
         }
         
         #copy-btn:hover {
-            background: rgba(0, 0, 0, 0.1); /* --- [수정됨] 호버 배경색 변경 --- */
+            background: rgba(0, 0, 0, 0.1);
         }
 
         @keyframes fadeInUp {
@@ -268,6 +250,14 @@
             line-height: 1.6;
         }
 
+        .timeline-content ul {
+            padding-left: 1.2em;
+        }
+
+        .timeline-content li + li {
+            margin-top: 4px;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -333,6 +323,33 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-left: 4px solid var(--secondary);
             transition: all 0.3s;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .pub-teaser {
+            flex: 0 0 260px;
+        }
+
+        .pub-teaser img {
+            display: block;
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        .pub-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .fa-linkedin {
+            color: #0A66C2;
+            font-size: 1.2em;
         }
 
         .publication-item:hover {
@@ -351,10 +368,25 @@
             margin-right: 10px;
         }
 
+        .pub-title a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .pub-title a:hover {
+            text-decoration: underline;
+        }
+
+        .pub-note {
+            font-size: 0.85em;
+            margin-top: 6px;
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: var(--dark); /* --- [수정됨] 푸터 글자색 어둡게 --- */
+            color: var(--dark);
             font-size: 0.9em;
         }
 
@@ -363,6 +395,9 @@
             .subtitle { font-size: 1.2em; }
             .content-section { padding: 25px; }
             .timeline-header { flex-direction: column; align-items: flex-start; }
+            .publication-item { flex-direction: column; align-items: stretch; }
+            .pub-teaser { flex-basis: auto; }
+            .pub-teaser img { max-height: none; }
         }
     </style>
 </head>
@@ -374,16 +409,17 @@
             </div>
             <h1>Jeongbin Sohn</h1>
             <div class="subtitle">손정빈 | Robotics & AI Researcher</div>
+            <div class="interests">Vision-based Navigation · Robot Perception · Computer Vision · Spacecraft Autonomy</div>
             <div class="contact-links">
                 
-                <a href="CV(26.4.13).pdf" target="_blank" class="contact-button">📄 CV</a>
+                <a href="CV(26.10.22).pdf" target="_blank" class="contact-button">📄 CV</a>
                 
                 <div class="contact-button email-group-container">
-                    <a href="/cdn-cgi/l/email-protection#691a030b5958595d5950290e04470e001a1d47080a47021b" id="email-link-text">📧 Email</a>
+                    <a href="mailto:sjb010409@gm.gist.ac.kr" id="email-link-text">✉️ Email</a>
                     <button id="copy-btn" onclick="copyEmail('sjb010409@gm.gist.ac.kr')">📋</button>
                 </div>
 
-                <a href="https://www.linkedin.com/in/jeongbin-sohn-robotics" target="_blank" class="contact-button">💼 LinkedIn</a>
+                <a href="https://www.linkedin.com/in/jeongbin-sohn-robotics" target="_blank" class="contact-button"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
             
             </div>
         </header>
@@ -396,12 +432,12 @@
                     <div class="timeline-date">Mar. 2020 - Feb. 2027</div>
                 </div>
                 <div class="timeline-subtitle">B.S. Mechanical and Robotics Engineering / EECS Minor</div>
-                <div class="timeline-content">GPA: 4.38/4.5</div>
+                <div class="timeline-content">Cumulative GPA: 4.38/4.5</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-title">University of California, Berkeley</div>
-                    <div class="timeline-date">Jan. 2026 - May. 2026</div>
+                    <div class="timeline-date">Jan. 2026 - May 2026</div>
                 </div>
                 <div class="timeline-subtitle">Study Abroad Program</div>
             </div>
@@ -415,7 +451,7 @@
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">GSA (Gwangju Science Academy for the Gifted)</div>
+                    <div class="timeline-title">Gwangju Science Academy for the Gifted (GSA)</div>
                     <div class="timeline-date">Mar. 2017 - Feb. 2020</div>
                 </div>
                 <div class="timeline-subtitle">High School Graduation</div>
@@ -426,22 +462,26 @@
             <h2>🔬 Research Experience</h2>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">UC Berkeley Embodied Dexterity Group (EDG)</div>
-                    <div class="timeline-date">Jan. 2026 - Current</div>
-                </div>
-                <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Hannah Stuart</div>
-                <div class="timeline-content">
-                    Analyzing recorded videos of C5-C7 injured patients demonstrating the dorsal grasper.
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <div class="timeline-title">GIST Machine Perception and Intelligence Lab</div>
+                    <div class="timeline-title">GIST Machine Perception and Intelligence Lab (MPIL)</div>
                     <div class="timeline-date">Jan. 2025 - Current</div>
                 </div>
                 <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Pyojin Kim</div>
                 <div class="timeline-content">
-                    Developing a Star Identification algorithm using deep learning to improve robustness against various noises in night sky images.
+                    <ul>
+                        <li>Developed SIGNN++, a graph neural network-based star identification framework robust to terrestrial noise such as light pollution, clouds, and motion blur; achieved a 98.5% solved rate on real night-sky images, compared with 79.1% for the strongest existing method.</li>
+                        <li>Built a real-world evaluation setup using a Rocket Lab ST-RT star tracker as the attitude reference.</li>
+                        <li>Adapted star identification algorithms to lunar crater identification in collaboration with the Korea Institute of Energy Technology (KENTECH).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">UC Berkeley Embodied Dexterity Group (EDG)</div>
+                    <div class="timeline-date">Jan. 2026 - Jun. 2026</div>
+                </div>
+                <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Hannah Stuart</div>
+                <div class="timeline-content">
+                    Analyzed recorded videos of individuals with C5–C7 spinal cord injuries demonstrating the dorsal grasper.
                 </div>
             </div>
             <div class="timeline-item">
@@ -451,7 +491,7 @@
                 </div>
                 <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Jongho Lee</div>
                 <div class="timeline-content">
-                    Studied Robot Operating System (ROS) and Path Planning algorithms, solidifying research interest in robotics.
+                    Studied the Robot Operating System (ROS) and path-planning algorithms.
                 </div>
             </div>
             <div class="timeline-item">
@@ -461,7 +501,7 @@
                 </div>
                 <div class="timeline-subtitle">Research Assistant | Supervisor: Dr. Hojae Lee</div>
                 <div class="timeline-content">
-                    Translating codes into Python and implementing a domain-change algorithm for indoor localization.
+                    Ported existing code to Python and implemented a domain-change algorithm for indoor localization.
                 </div>
             </div>
         </div>
@@ -469,21 +509,34 @@
         <div class="content-section">
             <h2>📝 Publications</h2>
             <div class="publication-item">
-                <div><span class="pub-venue">3DV 2025</span><strong>Poster Presentation (Accepted)</strong></div>
+                <a class="pub-teaser" href="celestial_navigation.png" target="_blank"><img src="celestial_navigation.png" alt="SIGNN++ teaser figure"></a>
+                <div class="pub-body">
+                <div><span class="pub-venue">ICRA 2027</span><strong>Under Review</strong></div>
                 <div class="timeline-content" style="margin-top: 10px;">
-                    Sohn and Park, "ECOE: Event-based Celestial Orientation Estimation"
+                    <span class="pub-title"><a href="https://signnpp.github.io/signnpp/" target="_blank">SIGNN++: Robust Graph Neural Star Identification on Earth</a></span><br>
+                    Sohn, Lee, Yen, Gwon, Han, Hepburn-Dickins, Coltin, Soussan, and Kim
+                </div>
                 </div>
             </div>
             <div class="publication-item">
+                <a class="pub-teaser" href="cignn_pipeline.png" target="_blank"><img src="cignn_pipeline.png" alt="Craters as Constellations teaser figure"></a>
+                <div class="pub-body">
+                <div><span class="pub-venue">IROS 2026 SRW</span><strong>Poster Presentation (Accepted)</strong></div>
+                <div class="timeline-content" style="margin-top: 10px;">
+                    <span class="pub-title"><a href="https://openreview.net/forum?id=vwdVKyYaOa" target="_blank">Craters as Constellations: Adapting Star Identification to Lunar Crater Identification</a></span><br>
+                    Sohn*, Kim*, Kim, and Lee
+                    <div class="pub-note">* Equal contribution</div>
+                </div>
+                </div>
+            </div>
+            <div class="publication-item">
+                <a class="pub-teaser" href="teaser.png" target="_blank"><img src="teaser.png" alt="Low-cost celestial compass teaser figure"></a>
+                <div class="pub-body">
                 <div><span class="pub-venue">ICROS 2025</span><strong>Poster Presentation (Accepted)</strong></div>
                 <div class="timeline-content" style="margin-top: 10px;">
-                    Park, Sohn, and Lee, "A Low-Cost Celestial Compass Under Low-Light Featureless Environment"
+                    <span class="pub-title">A Low-Cost Celestial Compass Under Low-Light Featureless Environment</span><br>
+                    Park, Sohn, and Lee
                 </div>
-            </div>
-            <div class="publication-item">
-                <div><span class="pub-venue">IEEE RA-L 2026</span><strong>In Preparation</strong></div>
-                <div class="timeline-content" style="margin-top: 10px;">
-                    Sohn, Lee, Park, and Hepburn-Dickins, "Edge of Stars: Learning Stellar Graphs through Angular-Edge Inversion"
                 </div>
             </div>
         </div>
@@ -491,24 +544,24 @@
         <div class="content-section">
             <h2>🏆 Awards & Fellowships</h2>
             <div class="award-item">
-                <div class="award-title">Study Abroad Program Scholarship - UC Berkeley</div>
-                <div class="award-date">Jan. 2026 - May. 2026</div>
-                <div class="timeline-content">$26,000 scholarship for 8 selected students</div>
+                <div class="award-title">Study Abroad Program Scholarship</div>
+                <div class="award-date">Jan. 2026 - May 2026</div>
+                <div class="timeline-content">Awarded 26,000 USD to eight students selected for the Study Abroad Program (SAP) at UC Berkeley.</div>
             </div>
             <div class="award-item">
                 <div class="award-title">Korea National Science and Engineering Scholarship</div>
-                <div class="award-date">Mar. 2020 - Feb. 2026</div>
-                <div class="timeline-content">Full tuition funding for 8 semesters (국가이공계장학금)</div>
+                <div class="award-date">Mar. 2020 - Feb. 2027</div>
+                <div class="timeline-content">Full-tuition scholarship for eight semesters, funded by the Korea Student Aid Foundation, Ministry of Education. (국가이공계장학금)</div>
             </div>
             <div class="award-item">
                 <div class="award-title">Korea-U.S. Exchange Program for Advanced Fields</div>
-                <div class="award-date">Jan. 2026 - May. 2026</div>
-                <div class="timeline-content">$9,000 incentive scholarship for 113 undergraduate students</div>
+                <div class="award-date">Jan. 2026 - May 2026</div>
+                <div class="timeline-content">Merit-based scholarship of 9,000 USD awarded by the Korea Institute for Advancement of Technology (KIAT) to 113 undergraduate students in South Korea.</div>
             </div>
             <div class="award-item">
                 <div class="award-title">Woonhae Scholarship (운해장학금)</div>
                 <div class="award-date">Mar. 2025 - Feb. 2026</div>
-                <div class="timeline-content">$2,780 per semester for students with GPA over 4.0</div>
+                <div class="timeline-content">Merit-based scholarship of 2,780 USD per semester for one year, awarded by the Woonhae Foundation to students with a GPA above 4.0/4.5.</div>
             </div>
             <div class="award-item">
                 <div class="award-title">U.S. Army Commendation Medal</div>
@@ -525,7 +578,7 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-title">Programming Languages</div>
-                    <div class="skill-items">Python, C++, C, MATLAB</div>
+                    <div class="skill-items">Python (PyTorch, PyTorch Geometric, NumPy), C++, C, MATLAB</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">Operating Systems</div>
@@ -533,7 +586,7 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">Engineering Tools</div>
-                    <div class="skill-items">LabVIEW, Siemens NX, COMSOL, OpenFOAM</div>
+                    <div class="skill-items">ROS, LabVIEW, Siemens NX, COMSOL Multiphysics, OpenFOAM</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">Languages</div>
@@ -546,46 +599,46 @@
             <h2>🌟 Activities</h2>
             <div class="timeline-item">
                 <div class="timeline-header">
+                    <div class="timeline-title">Teaching Assistant - Multivariable Calculus</div>
+                    <div class="timeline-date">Sep. 2024 - Dec. 2024</div>
+                </div>
+                <div class="timeline-content">GIST GS2001 Multivariable Calculus and Applications</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
                     <div class="timeline-title">GIST Swimming Club Leader</div>
                     <div class="timeline-date">Mar. 2025 - Aug. 2025</div>
                 </div>
                 <div class="timeline-content">
-                    Led swimming, training, and recreational activities to build collaborative bonds among members.
+                    Led training sessions and social events, fostering teamwork among club members.
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">ELITE Club Foundation Member</div>
+                    <div class="timeline-title">ELITE Club Founding Member</div>
                     <div class="timeline-date">Jul. 2025 - Dec. 2025</div>
                 </div>
                 <div class="timeline-content">
-                    English for Learning, Inquiry, Thought, and Expression - Built club plans and led group studies.
+                    Founding member of ELITE (English for Learning, Inquiry, Thought, and Expression), an English study club supervised by Prof. Ellis Lee; planned club activities and led group studies.
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">Korean-American Scientists &amp; Engineers Association (KSEA)</div>
-                    <div class="timeline-date">Feb. 2026 - Current</div>
+                    <div class="timeline-title">KSEA Member</div>
+                    <div class="timeline-date">Feb. 2026 - May 2026</div>
                 </div>
                 <div class="timeline-content">
-                    Academic club for Korean-American students at UC Berkeley. Participating in a social group and academic journal club focus group.
+                    Member of the Korean-American Scientists &amp; Engineers Association (KSEA) at UC Berkeley; participated in the academic journal club.
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-title">Language Exchange Program</div>
-                    <div class="timeline-date">Feb. 2026 - May. 2026</div>
+                    <div class="timeline-date">Feb. 2026 - May 2026</div>
                 </div>
                 <div class="timeline-content">
-                    Learning English and teaching Korean simultaneously with a UC Berkeley student.
+                    Learned English and taught Korean with a UC Berkeley student.
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <div class="timeline-title">Teaching Assistant - Multivariable Calculus</div>
-                    <div class="timeline-date">Sep. 2024 - Dec. 2024</div>
-                </div>
-                <div class="timeline-content">GIST GS2001 Multivariable Calculus and Applications</div>
             </div>
         </div>
 
@@ -595,7 +648,7 @@
         </footer>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function copyEmail(emailText) {
             navigator.clipboard.writeText(emailText).then(() => {
                 const copyBtn = document.getElementById('copy-btn');
@@ -611,8 +664,6 @@
             });
         }
 
-        // --- [삭제됨] Create stars animation 관련 코드 ---
-
         // Smooth scroll animation for sections
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -625,4 +676,10 @@
 
         document.querySelectorAll('.content-section').forEach(section => {
             section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)'
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
