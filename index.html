@@ -239,6 +239,32 @@
             font-weight: 600;
         }
 
+        .timeline-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inst-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .coursework {
+            margin: 10px 0 0 20px;
+            padding: 15px 20px;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 10px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .coursework strong {
+            color: var(--dark);
+        }
+
         .timeline-subtitle {
             color: var(--secondary);
             font-weight: 600;
@@ -428,7 +454,7 @@
             <h2>🎓 Education</h2>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">GIST (Gwangju Institute of Science and Technology)</div>
+                    <div class="timeline-title"><img class="inst-logo" src="gist_logo.webp" alt="GIST logo">GIST (Gwangju Institute of Science and Technology)</div>
                     <div class="timeline-date">Mar. 2020 - Feb. 2027</div>
                 </div>
                 <div class="timeline-subtitle">B.S. Mechanical and Robotics Engineering / EECS Minor</div>
@@ -436,26 +462,33 @@
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">University of California, Berkeley</div>
+                    <div class="timeline-title"><img class="inst-logo" src="cal_logo.png" alt="UC Berkeley logo">University of California, Berkeley</div>
                     <div class="timeline-date">Jan. 2026 - May 2026</div>
                 </div>
                 <div class="timeline-subtitle">Study Abroad Program</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">Boston University</div>
-                    <div class="timeline-date">Jul. 2021 - Aug. 2021</div>
+                    <div class="timeline-title"><img class="inst-logo" src="katusa_logo.png" alt="Eighth Army logo">KATUSA (Korean Augmentation To the United States Army)</div>
+                    <div class="timeline-date">Dec. 2021 - Jun. 2023</div>
                 </div>
-                <div class="timeline-subtitle">Student Exchange Program</div>
-                <div class="timeline-content">GPA: 4.0/4.0</div>
+                <div class="timeline-subtitle">Military Service, CP TANGO | Seongnam, South Korea</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">Gwangju Science Academy for the Gifted (GSA)</div>
+                    <div class="timeline-title"><img class="inst-logo" src="bu_logo.png" alt="Boston University logo">Boston University</div>
+                    <div class="timeline-date">Jul. 2021 - Aug. 2021</div>
+                </div>
+                <div class="timeline-subtitle">Summer Exchange Program</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title"><img class="inst-logo" src="gsa_logo.jpeg" alt="GSA logo">Gwangju Science Academy for the Gifted (GSA)</div>
                     <div class="timeline-date">Mar. 2017 - Feb. 2020</div>
                 </div>
                 <div class="timeline-subtitle">High School Graduation</div>
             </div>
+            <div class="coursework"><strong>Relevant Coursework:</strong> Computer Vision, Digital Signal Processing, Automatic Control, Robot Kinematics and Vision, System Modeling and Control, Dynamics, Introduction to Artificial Intelligence, Linear Algebra, Probability and Statistics</div>
         </div>
 
         <div class="content-section">
@@ -468,7 +501,8 @@
                 <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Pyojin Kim</div>
                 <div class="timeline-content">
                     <ul>
-                        <li>Developed SIGNN++, a graph neural network-based star identification framework robust to terrestrial noise such as light pollution, clouds, and motion blur; achieved a 98.5% solved rate on real night-sky images, compared with 79.1% for the strongest existing method.</li>
+                        <li>Developed SIGNN++, a graph neural network-based star identification framework robust to terrestrial noise such as light pollution, clouds, and motion blur.</li>
+                        <li>Achieved a 98.5% solved rate on real night-sky images, compared with 79.1% for the strongest existing method.</li>
                         <li>Built a real-world evaluation setup using a Rocket Lab ST-RT star tracker as the attitude reference.</li>
                         <li>Adapted star identification algorithms to lunar crater identification in collaboration with the Korea Institute of Energy Technology (KENTECH).</li>
                     </ul>
@@ -481,7 +515,7 @@
                 </div>
                 <div class="timeline-subtitle">Student Intern | Supervisor: Prof. Hannah Stuart</div>
                 <div class="timeline-content">
-                    Analyzed recorded videos of individuals with C5–C7 spinal cord injuries demonstrating the dorsal grasper.
+                    Analyzed recorded videos of individuals with C5–C7 spinal cord injuries using the dorsal grasper and estimated its 3D pose with the PnP algorithm.
                 </div>
             </div>
             <div class="timeline-item">
@@ -534,8 +568,9 @@
                 <div class="pub-body">
                 <div><span class="pub-venue">ICROS 2025</span><strong>Poster Presentation (Accepted)</strong></div>
                 <div class="timeline-content" style="margin-top: 10px;">
-                    <span class="pub-title"><a href="https://drive.google.com/file/d/1mIQkyZKyKhykr9tb5Ai_bvhm3f8jk8ln/view" target="_blank">A Low-Cost Celestial Compass Under Low-Light Featureless Environment</a></span><br>
+                    <span class="pub-title"><a href="https://drive.google.com/file/d/1qaYHK_CK2N4hxz4Xy6RUkpYXOa8o5vem/view" target="_blank">A Low-Cost Celestial Compass Under Low-Light Featureless Environment</a></span><br>
                     Park, Sohn, and Lee
+                    <div class="pub-note">Institute of Control, Robotics and Systems (ICROS) Annual Conference</div>
                 </div>
                 </div>
             </div>
@@ -544,24 +579,24 @@
         <div class="content-section">
             <h2>🏆 Awards & Fellowships</h2>
             <div class="award-item">
-                <div class="award-title">Study Abroad Program Scholarship</div>
+                <div class="award-title">Study Abroad Program Scholarship (26,000 USD)</div>
                 <div class="award-date">Jan. 2026 - May 2026</div>
-                <div class="timeline-content">Awarded 26,000 USD to eight students selected for the Study Abroad Program (SAP) at UC Berkeley.</div>
+                <div class="timeline-content">Awarded to eight students selected for the Study Abroad Program (SAP) at UC Berkeley.</div>
             </div>
             <div class="award-item">
-                <div class="award-title">Korea National Science and Engineering Scholarship</div>
+                <div class="award-title">Korea National Science and Engineering Scholarship (Full Tuition)</div>
                 <div class="award-date">Mar. 2020 - Feb. 2027</div>
                 <div class="timeline-content">Full-tuition scholarship for eight semesters, funded by the Korea Student Aid Foundation, Ministry of Education. (국가이공계장학금)</div>
             </div>
             <div class="award-item">
-                <div class="award-title">Korea-U.S. Exchange Program for Advanced Fields</div>
+                <div class="award-title">Korea-U.S. Exchange Program for Advanced Fields (9,000 USD)</div>
                 <div class="award-date">Jan. 2026 - May 2026</div>
-                <div class="timeline-content">Merit-based scholarship of 9,000 USD awarded by the Korea Institute for Advancement of Technology (KIAT) to 113 undergraduate students in South Korea.</div>
+                <div class="timeline-content">Merit-based scholarship awarded by the Korea Institute for Advancement of Technology (KIAT) to 113 undergraduate students in South Korea.</div>
             </div>
             <div class="award-item">
-                <div class="award-title">Woonhae Scholarship (운해장학금)</div>
+                <div class="award-title">Woonhae Scholarship (5,560 USD)</div>
                 <div class="award-date">Mar. 2025 - Feb. 2026</div>
-                <div class="timeline-content">Merit-based scholarship of 2,780 USD per semester for one year, awarded by the Woonhae Foundation to students with a GPA above 4.0/4.5.</div>
+                <div class="timeline-content">Merit-based scholarship awarded by the Woonhae Foundation for two consecutive semesters to students with a GPA above 4.0/4.5.</div>
             </div>
             <div class="award-item">
                 <div class="award-title">U.S. Army Commendation Medal</div>
@@ -581,12 +616,12 @@
                     <div class="skill-items">Python (PyTorch, PyTorch Geometric, NumPy), C++, C, MATLAB</div>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-title">Operating Systems</div>
-                    <div class="skill-items">Linux, Windows</div>
+                    <div class="skill-title">Development Tools</div>
+                    <div class="skill-items">Git, Linux, Docker</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">Engineering Tools</div>
-                    <div class="skill-items">ROS, LabVIEW, Siemens NX, COMSOL Multiphysics, OpenFOAM</div>
+                    <div class="skill-items">ROS, OpenCV, LabVIEW, Siemens NX, COMSOL Multiphysics, OpenFOAM</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">Languages</div>
@@ -596,14 +631,18 @@
         </div>
 
         <div class="content-section">
-            <h2>🌟 Activities</h2>
+            <h2>👨‍🏫 Teaching Experience</h2>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <div class="timeline-title">Teaching Assistant - Multivariable Calculus</div>
+                    <div class="timeline-title">Teaching Assistant</div>
                     <div class="timeline-date">Sep. 2024 - Dec. 2024</div>
                 </div>
-                <div class="timeline-content">GIST GS2001 Multivariable Calculus and Applications</div>
+                <div class="timeline-subtitle">GIST GS2001 Multivariable Calculus and Applications | Gwangju, South Korea</div>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🌟 Leadership &amp; Activities</h2>
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-title">GIST Swimming Club Leader</div>
