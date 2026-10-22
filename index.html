@@ -45,8 +45,8 @@
 
         /* Profile photo: click to flip and show the photo on the back */
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             margin: 0 auto 30px;
             border-radius: 50%;
             perspective: 1000px;
@@ -92,8 +92,19 @@
             object-fit: cover;
         }
 
+        /* Back photo is zoomed out to show the whole picture;
+           a blurred copy of the same photo fills the empty edges of the circle */
+        .flip-back::before {
+            content: '';
+            position: absolute;
+            inset: -15%;
+            background: url('me.jpg') center / cover no-repeat;
+            filter: blur(10px);
+        }
+
         .flip-back img {
-            object-position: 50% 20%;
+            position: relative;
+            object-fit: contain;
         }
 
         @media (prefers-reduced-motion: reduce) {
