@@ -43,24 +43,61 @@
             position: relative;
         }
 
+        /* Profile photo: click to flip and show the photo on the back */
         .profile-img {
             width: 180px;
             height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
             margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 50%;
+            perspective: 1000px;
+            cursor: pointer;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden; 
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .profile-img img {
+        .profile-img:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        .flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+
+        .profile-img.flipped .flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-face {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-back {
+            transform: rotateY(180deg);
+        }
+
+        .flip-face img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+        }
+
+        .flip-back img {
+            object-position: 50% 20%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .flip-inner { transition: none; }
         }
         
         h1 {
@@ -440,8 +477,15 @@
 <body>
     <div class="container">
         <header>
-            <div class="profile-img">
-                <img src="visa photo.jpg" alt="Jeongbin Sohn Profile Photo">
+            <div class="profile-img" role="button" tabindex="0" aria-pressed="false" aria-label="Flip profile photo" title="Click me!">
+                <div class="flip-inner">
+                    <div class="flip-face flip-front">
+                        <img src="visa photo.jpg" alt="Jeongbin Sohn profile photo">
+                    </div>
+                    <div class="flip-face flip-back">
+                        <img src="me.jpg" alt="Jeongbin Sohn giving a thumbs-up at IROS 2026">
+                    </div>
+                </div>
             </div>
             <h1>Jeongbin Sohn</h1>
             <div class="subtitle">손정빈 | Robotics & AI Researcher</div>
@@ -712,6 +756,20 @@
                 alert('이메일 복사에 실패했습니다.');
             });
         }
+
+        // Flip the profile photo on click / Enter / Space
+        const profile = document.querySelector('.profile-img');
+        function flipProfile() {
+            const flipped = profile.classList.toggle('flipped');
+            profile.setAttribute('aria-pressed', flipped);
+        }
+        profile.addEventListener('click', flipProfile);
+        profile.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                flipProfile();
+            }
+        });
 
         // Smooth scroll animation for sections
         const observer = new IntersectionObserver((entries) => {
