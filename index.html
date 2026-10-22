@@ -45,8 +45,8 @@
 
         /* Profile photo: click to flip and show the photo on the back */
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             margin: 0 auto 30px;
             border-radius: 50%;
             perspective: 1000px;
@@ -757,12 +757,29 @@
             });
         }
 
-        // Flip the profile photo on click / Enter / Space
+        // Flip the profile photo: hover for a moment (mouse), or click / tap / Enter / Space
         const profile = document.querySelector('.profile-img');
-        function flipProfile() {
-            const flipped = profile.classList.toggle('flipped');
+        const HOVER_DELAY = 800; // ms the cursor must rest on the photo before it flips
+        let hoverTimer = null;
+
+        function setFlipped(flipped) {
+            profile.classList.toggle('flipped', flipped);
             profile.setAttribute('aria-pressed', flipped);
         }
+        function flipProfile() {
+            clearTimeout(hoverTimer);
+            setFlipped(!profile.classList.contains('flipped'));
+        }
+
+        profile.addEventListener('pointerenter', (e) => {
+            if (e.pointerType !== 'mouse') return; // touch devices use tap instead
+            hoverTimer = setTimeout(() => setFlipped(true), HOVER_DELAY);
+        });
+        profile.addEventListener('pointerleave', (e) => {
+            if (e.pointerType !== 'mouse') return;
+            clearTimeout(hoverTimer);
+            setFlipped(false);
+        });
         profile.addEventListener('click', flipProfile);
         profile.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
